@@ -21,9 +21,11 @@ def create_app(config_class=Config):
     # Register blueprints
     from .routes.auth import auth_bp
     from .routes.images import images_bp
+    from .routes.health import health_bp
     
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(images_bp, url_prefix='/api/images')
+    app.register_blueprint(health_bp, url_prefix='/')
     
     # Create database tables
     with app.app_context():
