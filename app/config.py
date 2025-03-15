@@ -32,5 +32,4 @@ class Config:
     # SSL/TLS Certificate settings
     SSL_CERT_PATH = os.environ.get('SSL_CERT_PATH')
     SSL_KEY_PATH = os.environ.get('SSL_KEY_PATH')
-    SSL_ENABLED = os.environ.get('SSL_ENABLED', 'False').lower() == 'true'
 

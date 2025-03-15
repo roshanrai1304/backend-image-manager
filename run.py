@@ -1,15 +1,11 @@
 from app import create_app
 from app.config import Config
 
+key_file = Config.SSL_KEY_PATH
+cert_file = Config.SSL_CERT_PATH
+
 app = create_app()
 
 if __name__ == "__main__":
-    if Config.SSL_ENABLED and Config.SSL_CERT_PATH and Config.SSL_KEY_PATH:
-        app.run(
-            host='127.0.0.1',
-            port=5000,  # Keep using port 5000 or change to 443 if preferred
-            ssl_context=(Config.SSL_CERT_PATH, Config.SSL_KEY_PATH)
-        )
-    else:
-        app.run(host='127.0.0.1', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=(cert_file, key_file))
 
