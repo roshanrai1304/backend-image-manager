@@ -26,3 +26,6 @@ class Config:
     # ChatGPT API settings
     OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
+    # Add to your Config class
+    CORS_ORIGINS = os.environ.get('CORS_ORIGINS', '*')
+
